@@ -6,7 +6,7 @@ export default function decorate(block) {
 
   const htmlLiteral = `
     <span class="logo">  
-      <a class="logo__picture" href="${link}">
+      <a class="logo-picture" href="${link}">
         <img src="${src}" alt="${altText}">
       </a>
     </span>
