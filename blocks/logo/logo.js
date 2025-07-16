@@ -11,5 +11,5 @@ export default function decorate(block) {
       </a>
     </span>
   `;
-  block.innerHTML = utility.sanitizeHtml(htmlLiteral);
+  block.innerHTML = htmlLiteral;
 }

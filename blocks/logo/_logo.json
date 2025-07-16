@@ -35,6 +35,21 @@
                   "component": "aem-content",
                   "name": "link",
                   "label": "Link"
+                },
+                {
+                  "component": "select",
+                  "name": "logoType",
+                  "label": "Logo Type",
+                  "options": [
+                        {
+                            "name": "Logo",
+                            "value": "logo"
+                        },
+                        {
+                            "name": "Social Icon",
+                            "value": "social-icon"
+                        }
+                    ]
                 }
             ]
         }
