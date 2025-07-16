@@ -1,4 +1,4 @@
-/* Footer Styles - Desktop Only */
+/* Footer Styles - Exact match to image */
 .footer-wrapper {
     background-color: #000;
     color: #fff;
@@ -11,33 +11,27 @@
     padding: 0 1.5rem;
 }
 
-/* Logo container section */
+/* Main footer content layout */
 .section.logo-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-/* Logo wrapper */
-.logo-wrapper {
-    display: flex;
-    align-items: center;
-}
-
+/* Vation logo */
 .logo.header-footer-logo.block .logo-picture img {
-    height: 32px;
+    height: 24px;
     width: auto;
-    filter: brightness(0) invert(1); /* Makes logo white if it's dark */
 }
 
-/* Navigation links */
+/* Navigation links in center */
 .default-content-wrapper ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
 }
 
@@ -48,51 +42,35 @@
 .default-content-wrapper ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 16px;
+    font-weight: 400;
     transition: color 0.2s ease;
-    white-space: nowrap;
 }
 
 .default-content-wrapper ul li a:hover {
-    color: #b3b3b3;
+    color: #ccc;
 }
 
-/* Social icon */
+/* LinkedIn icon on right */
 .logo.social-icon.block .logo-picture img {
     width: 24px;
     height: 24px;
-    filter: brightness(0) invert(1); /* Makes icon white */
     transition: opacity 0.2s ease;
 }
 
 .logo.social-icon.block .logo-picture:hover img {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 /* Copyright section */
 .section:last-child {
-    border-top: 1px solid #333;
-    padding-top: 1.5rem;
     text-align: center;
+    padding-top: 0;
 }
 
 .section:last-child .default-content-wrapper p {
     margin: 0;
-    color: #b3b3b3;
-    font-size: 0.875rem;
-}
-
-/* Layout positioning */
-.logo.header-footer-logo.block {
-    flex: 0 0 auto;
-}
-
-.default-content-wrapper {
-    flex: 1 1 auto;
-    display: flex;
-    justify-content: center;
-}
-
-.logo.social-icon.block {
-    flex: 0 0 auto;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
 }
