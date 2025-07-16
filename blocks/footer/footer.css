@@ -17,20 +17,21 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  flex-wrap: wrap;
+  max-width: 1200px;
 }
 
 .footer .logo-container .logo-wrapper {
   display: flex;
   align-items: center;
-  flex: 1;
 }
 
 .footer .logo-container .logo-wrapper:first-child {
+  flex: 1;
   justify-content: flex-start;
 }
 
 .footer .logo-container .logo-wrapper:last-child {
+  flex: 1;
   justify-content: flex-end;
 }
 
@@ -52,6 +53,7 @@
   gap: 40px;
   margin: 0;
   padding: 0;
+  white-space: nowrap;
 }
 
 .footer .logo-container .default-content-wrapper ul li a {
