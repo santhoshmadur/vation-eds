@@ -45,6 +45,10 @@
                   "valueType":"string",
                   "options": [
                         {
+                            "name": "Default",
+                            "value": ""
+                        },
+                        {
                             "name": "Logo",
                             "value": "logo"
                         },
