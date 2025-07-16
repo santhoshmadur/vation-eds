@@ -49,8 +49,8 @@
                             "value": ""
                         },
                         {
-                            "name": "Logo",
-                            "value": "logo"
+                            "name": "Header Footer Logo",
+                            "value": "header-footer-logo"
                         },
                         {
                             "name": "Social Icon",
