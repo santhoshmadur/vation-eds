@@ -3,7 +3,6 @@
     background-color: #000;
     height: 208px;
     color: #fff;
-    max-width: 1200px;
 }
 
 /* Main footer content layout */
@@ -11,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 72px 140px;
+    padding: 72px 140px;
 }
 
 
