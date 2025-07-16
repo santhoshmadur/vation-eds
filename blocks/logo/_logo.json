@@ -38,8 +38,11 @@
                 },
                 {
                   "component": "select",
-                  "name": "logoType",
-                  "label": "Logo Type",
+                  "name": "classes",
+                  "value": "",
+                  "label": "Logo options",
+                  "description": "",
+                  "valueType":"string",
                   "options": [
                         {
                             "name": "Logo",
