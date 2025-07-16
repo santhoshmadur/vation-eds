@@ -6,6 +6,7 @@ footer {
 
 footer ul{
   list-style-type: none;
+  text-decoration: none;
 }
 
 footer ul li a {
