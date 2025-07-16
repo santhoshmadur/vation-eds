@@ -1,8 +1,8 @@
 /* Footer Styles - Exact match to image */
 .footer-wrapper {
     background-color: #000;
+    height: 208px;
     color: #fff;
-    padding: 2rem 0;
 }
 
 .footer.block {
@@ -19,11 +19,6 @@
     margin-bottom: 2rem;
 }
 
-/* Vation logo */
-.logo.header-footer-logo.block .logo-picture img {
-    height: 24px;
-    width: auto;
-}
 
 /* Navigation links in center */
 .default-content-wrapper ul {
@@ -51,12 +46,6 @@
     color: #ccc;
 }
 
-/* LinkedIn icon on right */
-.logo.social-icon.block .logo-picture img {
-    width: 24px;
-    height: 24px;
-    transition: opacity 0.2s ease;
-}
 
 .logo.social-icon.block .logo-picture:hover img {
     opacity: 0.8;
