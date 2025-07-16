@@ -8,7 +8,6 @@
 .footer.block {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
 }
 
 /* Main footer content layout */
@@ -16,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin: 72px 140px;
 }
 
 
@@ -43,13 +42,9 @@
 }
 
 .default-content-wrapper ul li a:hover {
-    color: #ccc;
+    color: #921ce8;
 }
 
-
-.logo.social-icon.block .logo-picture:hover img {
-    opacity: 0.8;
-}
 
 /* Copyright section */
 .section:last-child {
@@ -60,6 +55,6 @@
 .section:last-child .default-content-wrapper p {
     margin: 0;
     color: #fff;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 300;
 }
