@@ -1,18 +1,75 @@
-footer {
-  background-color: black;
-  font-size: var(--body-font-size-xs);
-  color: white;
+.footer-wrapper {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 40px;
+  font-family: sans-serif;
 }
 
-footer ul{
-  list-style-type: none;
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer .logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.footer .logo-container .logo-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.footer .logo-container .logo-wrapper:first-child {
+  justify-content: flex-start;
+}
+
+.footer .logo-container .logo-wrapper:last-child {
+  justify-content: flex-end;
+}
+
+.footer .logo-container .logo-wrapper:last-child img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.footer .logo-container .default-content-wrapper {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.footer .logo-container .default-content-wrapper ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer .logo-container .default-content-wrapper ul li a {
+  color: #fff;
   text-decoration: none;
+  font-size: 14px;
 }
 
-footer ul li a {
-  color: white;
+.footer .logo-container .default-content-wrapper ul li a:hover {
+  text-decoration: underline;
 }
 
-footer ul li a:hover {
-  color: #921ce8;
+.footer .section:last-of-type {
+  text-align: center;
+}
+
+.footer .section:last-of-type p {
+  margin: 0;
+  font-size: 12px;
+  color: #ccc;
 }
