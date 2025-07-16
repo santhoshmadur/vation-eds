@@ -243,8 +243,12 @@
         "valueType": "string",
         "options": [
           {
-            "name": "Logo",
-            "value": "logo"
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Header Footer Logo",
+            "value": "header-footer-logo"
           },
           {
             "name": "Social Icon",
