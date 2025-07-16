@@ -1,4 +1,9 @@
 footer {
   background-color: black;
   font-size: var(--body-font-size-xs);
+  color: white;
+}
+
+footer ul li:hover {
+  color: #921ce8;
 }
