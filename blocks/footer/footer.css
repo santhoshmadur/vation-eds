@@ -3,11 +3,7 @@
     background-color: #000;
     height: 208px;
     color: #fff;
-}
-
-.footer.block {
     max-width: 1200px;
-    margin: 0 auto;
 }
 
 /* Main footer content layout */
@@ -38,7 +34,6 @@
     text-decoration: none;
     font-size: 16px;
     font-weight: 400;
-    transition: color 0.2s ease;
 }
 
 .default-content-wrapper ul li a:hover {
@@ -49,7 +44,7 @@
 /* Copyright section */
 .section:last-child {
     text-align: center;
-    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .section:last-child .default-content-wrapper p {
