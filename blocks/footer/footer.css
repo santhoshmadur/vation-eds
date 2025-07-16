@@ -4,6 +4,12 @@ footer {
   color: white;
 }
 
-footer ul li:hover {
+footer ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
   color: #921ce8;
+  text-decoration: none;
 }
