@@ -32,10 +32,9 @@
                   "label": "Alt Text"
                 },
                 {
-                    "component": "aem-content",
-                    "valueType": "string",
-                    "name": "href",
-                    "label": "Link"
+                  "component": "aem-content",
+                  "name": "link",
+                  "label": "Link"
                 }
             ]
         }

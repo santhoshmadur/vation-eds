@@ -231,8 +231,7 @@
       },
       {
         "component": "aem-content",
-        "valueType": "string",
-        "name": "href",
+        "name": "link",
         "label": "Link"
       }
     ]
