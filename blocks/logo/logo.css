@@ -1,7 +1,6 @@
-.header-footer-logo{
-    border: 0;
-    height: auto;
-    max-width: 100%;
+.header-footer-logo .logo-picture img{
+  height: 30px;
+  width: 150px;
 }
 
 .social-icon .logo-picture img {
