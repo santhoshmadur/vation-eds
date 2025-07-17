@@ -1,5 +1,92 @@
-.header-wrapper{
-  background-color: #000;
-  height: 100px;
-  color: #fff;
+/* Base styling for the header */
+.header-wrapper {
+  background-color: #0000; /* Dark background */
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+/* Logo alignment */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo image styling */
+.logo-wrapper img {
+  height: 32px; /* Adjust size as per image */
+  object-fit: contain;
+}
+
+/* Nav menu list */
+.default-content-wrapper ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 2rem;
+}
+
+/* Top-level menu items */
+.default-content-wrapper > ul > li {
+  position: relative;
+}
+
+/* Menu links */
+.default-content-wrapper a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+.default-content-wrapper a:hover {
+  color: #ccc;
+}
+
+/* Submenu */
+.default-content-wrapper ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1a1a1a;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  min-width: 200px;
+  z-index: 100;
+}
+
+/* Show submenu on hover */
+.default-content-wrapper li:hover > ul {
+  display: block;
+}
+
+/* Submenu items */
+.default-content-wrapper ul ul li {
+  padding: 0;
+}
+
+.default-content-wrapper ul ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+  white-space: nowrap;
+}
+
+.default-content-wrapper ul ul li a:hover {
+  background-color: #333;
+}
+
+/* Search icon on far right */
+.logo.social-icon.block {
+  margin-left: auto;
+}
+
+.logo.social-icon img {
+  height: 18px;
+  filter: brightness(0) invert(1); /* Ensures white icon */
 }
