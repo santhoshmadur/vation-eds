@@ -70,12 +70,6 @@
   padding: 0;
 }
 
-.default-content-wrapper ul ul li a {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: white;
-  white-space: nowrap;
-}
 
 .default-content-wrapper ul ul li a:hover {
   background-color: #333;
