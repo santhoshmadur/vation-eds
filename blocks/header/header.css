@@ -1,11 +1,9 @@
-/* Base styling for the header */
 .header-wrapper {
-  background-color: #0000; /* Dark background */
-  padding: 0.5rem 2rem;
+  background-color: #0000;
+  padding: 0px 45px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: sans-serif;
 }
 
 /* Logo alignment */
