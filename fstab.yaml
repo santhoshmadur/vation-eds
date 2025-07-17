@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p127270-e1545172.adobeaemcloud.com/bin/franklin.delivery/santhoshmadur/vation-eds/main"
+    url: "https://author-p127270-e1713202.adobeaemcloud.com/bin/franklin.delivery/santhoshmadur/vation-eds/main"
     type: "markup"
     suffix: ".html"
