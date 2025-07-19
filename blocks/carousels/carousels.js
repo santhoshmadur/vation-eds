@@ -1,6 +1,5 @@
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
-  if (!block) return; // Prevent error if not found
   const slideIndex = parseInt(slide.dataset.slideIndex, 10);
   block.dataset.activeSlide = slideIndex;
 
@@ -75,57 +74,28 @@ function createSlide(row, slideIndex, carouselId) {
   slide.setAttribute('id', `carousel-${carouselId}-slide-${slideIndex}`);
   slide.classList.add('carousel-slide');
 
-  // Move the first child (the image wrapper) into the slide
-  const imageWrapper = row.querySelector('div');
-  if (imageWrapper) {
-    imageWrapper.classList.add('carousel-slide-image');
-    slide.append(imageWrapper);
-  }
+  row.querySelectorAll(':scope > div').forEach((column, colIdx) => {
+    column.classList.add(`carousel-slide-${colIdx === 0 ? 'image' : 'content'}`);
+    slide.append(column);
+  });
 
-  // Move any content (headings, paragraphs, etc.) into a .carousel-slide-content div
-  const contentElements = Array.from(row.children).filter(
-    (el) => el.tagName !== 'DIV', // Exclude the image wrapper
-  );
-  if (contentElements.length > 0) {
-    const contentDiv = document.createElement('div');
-    contentDiv.className = 'carousel-slide-content';
-    contentElements.forEach((el) => contentDiv.appendChild(el));
-    slide.append(contentDiv);
-
-    // Optionally set aria-labelledby if a heading is present
-    const heading = contentDiv.querySelector('h1, h2, h3, h4, h5, h6');
-    if (heading) {
-      if (!heading.id) {
-        heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-');
-      }
-      slide.setAttribute('aria-labelledby', heading.id);
-    }
+  const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
+  if (labeledBy) {
+    slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
   }
 
   return slide;
 }
 
 let carouselId = 0;
-
 export default async function decorate(block) {
   carouselId += 1;
   block.setAttribute('id', `carousel-${carouselId}`);
-  // For your DOM, each direct child div is a slide
-  const rows = Array.from(block.children).filter((el) => el.tagName === 'DIV');
+  const rows = block.querySelectorAll(':scope > div');
   const isSingleSlide = rows.length < 2;
 
-  // Hardcoded placeholder values
-  const placeholders = {
-    carousel: 'Carousel',
-    carouselSlideControls: 'Carousel Slide Controls',
-    previousSlide: 'Previous Slide',
-    nextSlide: 'Next Slide',
-    showSlide: 'Show Slide',
-    of: 'of',
-  };
-
   block.setAttribute('role', 'region');
-  block.setAttribute('aria-roledescription', placeholders.carousel);
+  block.setAttribute('aria-roledescription', 'Carousel');
 
   const container = document.createElement('div');
   container.classList.add('carousel-slides-container');
@@ -137,7 +107,7 @@ export default async function decorate(block) {
   let slideIndicators;
   if (!isSingleSlide) {
     const slideIndicatorsNav = document.createElement('nav');
-    slideIndicatorsNav.setAttribute('aria-label', placeholders.carouselSlideControls);
+    slideIndicatorsNav.setAttribute('aria-label', 'Carousel Slide Controls');
     slideIndicators = document.createElement('ol');
     slideIndicators.classList.add('carousel-slide-indicators');
     slideIndicatorsNav.append(slideIndicators);
@@ -146,8 +116,8 @@ export default async function decorate(block) {
     const slideNavButtons = document.createElement('div');
     slideNavButtons.classList.add('carousel-navigation-buttons');
     slideNavButtons.innerHTML = `
-      <button type="button" class= "slide-prev" aria-label="${placeholders.previousSlide}"></button>
-      <button type="button" class="slide-next" aria-label="${placeholders.nextSlide}"></button>
+      <button type="button" class= "slide-prev" aria-label="Previous Slide"></button>
+      <button type="button" class="slide-next" aria-label="Next Slide"></button>
     `;
 
     container.append(slideNavButtons);
@@ -161,7 +131,7 @@ export default async function decorate(block) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
       indicator.dataset.targetSlide = idx;
-      indicator.innerHTML = `<button type="button" aria-label="${placeholders.showSlide} ${idx + 1} ${placeholders.of} ${rows.length}"></button>`;
+      indicator.innerHTML = `<button type="button" aria-label="Show Slide ${idx + 1} of ${rows.length}"></button>`;
       slideIndicators.append(indicator);
     }
     row.remove();
