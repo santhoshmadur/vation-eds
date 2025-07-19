@@ -17,7 +17,7 @@
       "columns",
       "fragment",
       "logo",
-      "carousel"
+      "carousels"
     ]
   },
   {
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "id": "carousel",
+    "id": "carousels",
     "components": [
       "carousel"
     ]
