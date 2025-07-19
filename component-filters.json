@@ -33,6 +33,12 @@
     ]
   },
   {
+    "id": "carousel-slide-filter",
+    "components": [
+      "carousel-slide"
+    ]
+  },
+  {
     "id": "columns",
     "components": [
       "column"

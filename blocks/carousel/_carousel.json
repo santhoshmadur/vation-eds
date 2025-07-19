@@ -3,6 +3,17 @@
     {
       "title": "Carousel Block",
       "id": "carousel",
+      "structure": {
+        "type": "container",
+        "elements": [
+          {
+            "type": "reference",
+            "name": "slides",
+            "model": "carousel-slide",
+            "repeatable": true
+          }
+        ]
+      },
       "plugins": {
         "xwalk": {
           "page": {
@@ -70,6 +81,10 @@
     {
       "id": "carousel-block",
       "components": ["carousel"]
+    },
+    {
+      "id": "carousel-slide-filter",
+      "components": ["carousel-slide"]
     }
   ]
 }
