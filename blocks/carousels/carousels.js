@@ -1,5 +1,6 @@
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
+  if (!block) return; // Prevent error if not found
   const slideIndex = parseInt(slide.dataset.slideIndex, 10);
   block.dataset.activeSlide = slideIndex;
 
