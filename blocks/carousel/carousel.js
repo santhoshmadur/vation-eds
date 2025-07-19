@@ -74,18 +74,31 @@ function createSlide(row, slideIndex, carouselId) {
   slide.setAttribute('id', `carousel-${carouselId}-slide-${slideIndex}`);
   slide.classList.add('carousel-slide');
 
-  // For your DOM, row is a <div> with a <div><picture><img ...></picture></div>
-  // We'll move the first child (the image wrapper) into the slide
+  // Move the first child (the image wrapper) into the slide
   const imageWrapper = row.querySelector('div');
   if (imageWrapper) {
     imageWrapper.classList.add('carousel-slide-image');
     slide.append(imageWrapper);
   }
 
-  // Optionally, handle a label if present (not in your current DOM)
-  const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
-  if (labeledBy) {
-    slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
+  // Move any content (headings, paragraphs, etc.) into a .carousel-slide-content div
+  const contentElements = Array.from(row.children).filter(
+    (el) => el.tagName !== 'DIV', // Exclude the image wrapper
+  );
+  if (contentElements.length > 0) {
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'carousel-slide-content';
+    contentElements.forEach((el) => contentDiv.appendChild(el));
+    slide.append(contentDiv);
+
+    // Optionally set aria-labelledby if a heading is present
+    const heading = contentDiv.querySelector('h1, h2, h3, h4, h5, h6');
+    if (heading) {
+      if (!heading.id) {
+        heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      }
+      slide.setAttribute('aria-labelledby', heading.id);
+    }
   }
 
   return slide;
