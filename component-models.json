@@ -161,35 +161,14 @@
     ]
   },
   {
-    "id": "carousel-slide",
+    "id": "carousel",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "headline",
-        "label": "Headline",
-        "multi": false
-      },
-      {
         "component": "richtext",
-        "valueType": "string",
-        "name": "description",
-        "label": "Description",
-        "multi": false
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "cta",
-        "label": "CTA Link",
-        "multi": false
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   },

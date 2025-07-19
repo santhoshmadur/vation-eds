@@ -27,15 +27,9 @@
     ]
   },
   {
-    "id": "carousel-block",
+    "id": "carousel",
     "components": [
       "carousel"
-    ]
-  },
-  {
-    "id": "carousel-slide-filter",
-    "components": [
-      "carousel-slide"
     ]
   },
   {
