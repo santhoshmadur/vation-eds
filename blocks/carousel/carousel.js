@@ -1,5 +1,3 @@
-import { fetchPlaceholders } from '../../scripts/placeholders.js';
-
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
   const slideIndex = parseInt(slide.dataset.slideIndex, 10);
@@ -76,12 +74,15 @@ function createSlide(row, slideIndex, carouselId) {
   slide.setAttribute('id', `carousel-${carouselId}-slide-${slideIndex}`);
   slide.classList.add('carousel-slide');
 
-  // Wrap all children into the slide (supports your exact AEM structure)
-  slide.append(...row.children); // Take inner <div> or <picture> etc.
+  // For your DOM, row is a <div> with a <div><picture><img ...></picture></div>
+  // We'll move the first child (the image wrapper) into the slide
+  const imageWrapper = row.querySelector('div');
+  if (imageWrapper) {
+    imageWrapper.classList.add('carousel-slide-image');
+    slide.append(imageWrapper);
+  }
 
-  // Optional: add default class
-  row.classList.add('carousel-slide-image');
-
+  // Optionally, handle a label if present (not in your current DOM)
   const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
   if (labeledBy) {
     slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
@@ -91,16 +92,26 @@ function createSlide(row, slideIndex, carouselId) {
 }
 
 let carouselId = 0;
+
 export default async function decorate(block) {
   carouselId += 1;
   block.setAttribute('id', `carousel-${carouselId}`);
-  const rows = block.querySelectorAll(':scope > div');
+  // For your DOM, each direct child div is a slide
+  const rows = Array.from(block.children).filter((el) => el.tagName === 'DIV');
   const isSingleSlide = rows.length < 2;
 
-  const placeholders = await fetchPlaceholders();
+  // Hardcoded placeholder values
+  const placeholders = {
+    carousel: 'Carousel',
+    carouselSlideControls: 'Carousel Slide Controls',
+    previousSlide: 'Previous Slide',
+    nextSlide: 'Next Slide',
+    showSlide: 'Show Slide',
+    of: 'of',
+  };
 
   block.setAttribute('role', 'region');
-  block.setAttribute('aria-roledescription', placeholders.carousel || 'Carousel');
+  block.setAttribute('aria-roledescription', placeholders.carousel);
 
   const container = document.createElement('div');
   container.classList.add('carousel-slides-container');
@@ -112,7 +123,7 @@ export default async function decorate(block) {
   let slideIndicators;
   if (!isSingleSlide) {
     const slideIndicatorsNav = document.createElement('nav');
-    slideIndicatorsNav.setAttribute('aria-label', placeholders.carouselSlideControls || 'Carousel Slide Controls');
+    slideIndicatorsNav.setAttribute('aria-label', placeholders.carouselSlideControls);
     slideIndicators = document.createElement('ol');
     slideIndicators.classList.add('carousel-slide-indicators');
     slideIndicatorsNav.append(slideIndicators);
@@ -121,8 +132,8 @@ export default async function decorate(block) {
     const slideNavButtons = document.createElement('div');
     slideNavButtons.classList.add('carousel-navigation-buttons');
     slideNavButtons.innerHTML = `
-      <button type="button" class= "slide-prev" aria-label="${placeholders.previousSlide || 'Previous Slide'}"></button>
-      <button type="button" class="slide-next" aria-label="${placeholders.nextSlide || 'Next Slide'}"></button>
+      <button type="button" class= "slide-prev" aria-label="${placeholders.previousSlide}"></button>
+      <button type="button" class="slide-next" aria-label="${placeholders.nextSlide}"></button>
     `;
 
     container.append(slideNavButtons);
@@ -136,7 +147,7 @@ export default async function decorate(block) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
       indicator.dataset.targetSlide = idx;
-      indicator.innerHTML = `<button type="button" aria-label="${placeholders.showSlide || 'Show Slide'} ${idx + 1} ${placeholders.of || 'of'} ${rows.length}"></button>`;
+      indicator.innerHTML = `<button type="button" aria-label="${placeholders.showSlide} ${idx + 1} ${placeholders.of} ${rows.length}"></button>`;
       slideIndicators.append(indicator);
     }
     row.remove();
@@ -146,8 +157,6 @@ export default async function decorate(block) {
   block.prepend(container);
 
   if (!isSingleSlide) {
-    showSlide(block, 0); // Scroll to first slide
-    updateActiveSlide(block.querySelector('.carousel-slide')); // Ensure ARIA and tabindex updates
     bindEvents(block);
   }
 }
