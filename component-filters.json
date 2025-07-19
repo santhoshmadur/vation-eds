@@ -27,7 +27,7 @@
     ]
   },
   {
-    "id": "carousel",
+    "id": "carousel-block",
     "components": [
       "carousel"
     ]

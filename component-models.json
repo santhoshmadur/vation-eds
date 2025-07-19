@@ -161,27 +161,27 @@
     ]
   },
   {
-    "id": "carousel",
+    "id": "carousel-slide",
     "fields": [
       {
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Slide Image",
+        "label": "Image",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "title",
-        "label": "Slide Title",
+        "name": "headline",
+        "label": "Headline",
         "multi": false
       },
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "content",
-        "label": "Slide Content",
+        "name": "description",
+        "label": "Description",
         "multi": false
       },
       {
