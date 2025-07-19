@@ -1,7 +1,7 @@
 {
   "definitions": [
     {
-      "title": "carousel",
+      "title": "Carousel Block",
       "id": "carousel",
       "plugins": {
         "xwalk": {
@@ -16,8 +16,8 @@
       }
     },
     {
-      "title": "carousel",
-      "id": "carousel",
+      "title": "Carousel Slide",
+      "id": "carousel-slide",
       "plugins": {
         "xwalk": {
           "page": {
@@ -39,7 +39,28 @@
           "component": "reference",
           "valueType": "string",
           "name": "image",
-          "label": "Image",
+          "label": "Slide Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Slide Title",
+          "multi": false
+        },
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "content",
+          "label": "Slide Content",
+          "multi": false
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "cta",
+          "label": "CTA Link",
           "multi": false
         }
       ]

@@ -113,7 +113,7 @@
           }
         },
         {
-          "title": "carousel",
+          "title": "Carousel Block",
           "id": "carousel",
           "plugins": {
             "xwalk": {
@@ -128,8 +128,8 @@
           }
         },
         {
-          "title": "carousel",
-          "id": "carousel",
+          "title": "Carousel Slide",
+          "id": "carousel-slide",
           "plugins": {
             "xwalk": {
               "page": {
