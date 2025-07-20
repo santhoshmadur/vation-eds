@@ -26,11 +26,6 @@
           "label": "Video URL"
         },
         {
-          "component": "text",
-          "name": "title",
-          "label": "Video Title"
-        },
-        {
           "component": "reference",
           "name": "poster",
           "label": "Poster Image"
