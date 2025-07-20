@@ -12,7 +12,11 @@
   display: flex;
   align-items: center;
   padding-top: 20px;
-  gap: 150px; /* Added gap between logo and navigation */
+  column-gap: 150px; /* Horizontal gap between children */
+}
+
+.header.block > div > :last-child {
+  margin-right: 60px; /* Adjust right gap as needed */
 }
 
 /* ===================== LOGO ===================== */
