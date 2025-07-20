@@ -1,7 +1,156 @@
+/* ===================== HEADER ===================== */
 .header-wrapper {
   background-color: #000;
   padding: 0 140px;
+  height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.header.block > div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  padding-top: 20px;
+  gap: 150px; /* Added gap between logo and navigation */
 }
+
+/* ===================== LOGO ===================== */
+.logo-container .logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo a.logo-picture img {
+  max-height: 40px;
+  width: auto;
+}
+
+/* ===================== MAIN NAVIGATION ===================== */
+.default-content-wrapper ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.default-content-wrapper ul > li {
+  position: relative;
+}
+
+.default-content-wrapper p {
+  margin: 0;
+}
+
+.default-content-wrapper p a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.75rem 0.5rem;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+/* ===================== DROPDOWN ===================== */
+.default-content-wrapper li ul {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #000;
+  border-radius: 6px;
+  width: max-content;
+  min-width: 120px;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 30%);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-40px) scaleY(0.8);
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Show dropdown with animation on hover */
+.default-content-wrapper li:hover > ul {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scaleY(1);
+}
+
+.default-content-wrapper li ul li {
+  width: 100%;
+}
+
+.default-content-wrapper li ul li a {
+  color: white;
+  padding: 0.75rem 1rem;
+  display: block;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.default-content-wrapper p a:hover {
+  color: #a900ff; /* Purple on hover */
+  text-decoration: underline;
+}
+
+.default-content-wrapper li ul li a:hover {
+  background-color: #a900ff;
+  color: white;
+}
+
+.w-search {
+  background-color: #111;
+  padding: 8px;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  width: 250px;
+}
+
+.w-search-form-field input[type="text"] {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 32px 8px 0; // right padding for the X button
+}
+
+.w-search-form-field input::placeholder {
+  color: #888; // light gray placeholder
+}
+
+.w-search-close {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.w-search-close::before,
+.w-search-close::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 16px;
+  height: 2px;
+  background-color: #888;
+}
+
+.w-search-close::before {
+  transform: rotate(45deg);
+}
+
+.w-search-close::after {
+  transform: rotate(-45deg);
+}
+
