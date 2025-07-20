@@ -21,7 +21,7 @@
       "id": "video",
       "fields": [
         {
-          "component": "aem-content",
+          "component": "reference",
           "name": "link",
           "label": "Video URL"
         },
@@ -40,7 +40,7 @@
         {
           "component": "aem-content",
           "name": "poster",
-          "label": "Poster Image (optional)",
+          "label": "Poster Image",
           "required": false
         }
       ]

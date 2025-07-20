@@ -277,5 +277,33 @@
         ]
       }
     ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "link",
+        "label": "Video URL"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Video Title",
+        "required": false
+      },
+      {
+        "component": "toggle",
+        "name": "autoplay",
+        "label": "Autoplay",
+        "default": false
+      },
+      {
+        "component": "aem-content",
+        "name": "poster",
+        "label": "Poster Image",
+        "required": false
+      }
+    ]
   }
 ]
