@@ -31,11 +31,6 @@
           "label": "Video Title"
         },
         {
-          "component": "toggle",
-          "name": "autoplay",
-          "label": "Autoplay"
-        },
-        {
           "component": "reference",
           "name": "poster",
           "label": "Poster Image"
