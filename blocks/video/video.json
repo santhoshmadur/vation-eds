@@ -1,0 +1,32 @@
+{
+    "definitions": [
+        {
+            "title": "Video",
+            "id": "video",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/button/v1/button",
+                        "template": {
+                            "name": "Video",
+                            "model": "video"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "models": [
+        {
+            "id": "video",
+            "fields": [
+                {
+                    "component": "aem-content",
+                    "name": "link",
+                    "label": "Link"
+                }
+            ]
+        }
+    ],
+    "filters": []
+}
