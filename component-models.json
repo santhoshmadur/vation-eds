@@ -289,20 +289,17 @@
       {
         "component": "text",
         "name": "title",
-        "label": "Video Title",
-        "required": false
+        "label": "Video Title"
       },
       {
         "component": "toggle",
         "name": "autoplay",
-        "label": "Autoplay",
-        "default": false
+        "label": "Autoplay"
       },
       {
-        "component": "aem-content",
+        "component": "reference",
         "name": "poster",
-        "label": "Poster Image",
-        "required": false
+        "label": "Poster Image"
       }
     ]
   }
