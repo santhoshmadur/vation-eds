@@ -107,6 +107,14 @@ const loadVideoEmbed = (block, link, autoplay, background) => {
 };
 
 export default async function decorate(block) {
+  const videoHeading = block.querySelector('.text');
+  if (videoHeading) {
+    const heading = document.createElement('div');
+    heading.className = 'video-heading';
+    heading.textContent = videoHeading.textContent;
+    block.prepend(heading);
+  }
+
   const placeholder = block.querySelector('picture');
   const link = block.querySelector('a').href;
   block.textContent = '';
