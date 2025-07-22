@@ -109,6 +109,9 @@ const loadVideoEmbed = (block, link, autoplay, background) => {
 export default async function decorate(block) {
   const placeholder = block.querySelector('picture');
   const link = block.querySelector('a').href;
+  const data = block.dataset.block ? JSON.parse(block.dataset.block) : {};
+  const videoHeading = data['video-heading'] || '';
+  const videoText = data['video-text'] || '';
   block.textContent = '';
   block.dataset.embedLoaded = false;
 
@@ -141,5 +144,17 @@ export default async function decorate(block) {
       }
     });
     observer.observe(block);
+  }
+  if (videoHeading) {
+    const headingDiv = document.createElement('div');
+    headingDiv.className = 'video-heading';
+    headingDiv.innerHTML = videoHeading;
+    block.appendChild(headingDiv);
+  }
+  if (videoText) {
+    const textDiv = document.createElement('div');
+    textDiv.className = 'video-text';
+    textDiv.innerHTML = videoText;
+    block.appendChild(textDiv);
   }
 }
