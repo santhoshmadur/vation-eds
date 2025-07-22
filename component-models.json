@@ -283,7 +283,7 @@
     "fields": [
       {
         "component": "richtext",
-        "name": "text",
+        "name": "video-heading",
         "value": "",
         "label": "Video Heading",
         "valueType": "string"
@@ -300,7 +300,7 @@
       },
       {
         "component": "richtext",
-        "name": "text",
+        "name": "video-text",
         "value": "",
         "label": "Video Text",
         "valueType": "string"
