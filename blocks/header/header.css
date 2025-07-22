@@ -1,6 +1,6 @@
  .header-wrapper {
   background-color: #000;
-  padding: 0 140px;
+  padding: 0 45px;
   height: 90px;
   position: sticky;
   top: 0;
@@ -11,12 +11,18 @@
   display: flex;
   align-items: center;
   padding-top: 20px;
-  column-gap: 100px;
+
+  /* column-gap: 100px; */
 }
 
  .header-wrapper .logo-container .logo-wrapper {
   display: flex;
   align-items: center;
+}
+
+.header-wrapper .default-content-wrapper{
+  margin-left: 280px;
+  margin-right: 10px;
 }
 
  .header-wrapper .default-content-wrapper ul {
@@ -26,7 +32,10 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  gap: 30px;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 16px !important;
 }
 
  .header-wrapper .default-content-wrapper ul > li {
@@ -40,7 +49,6 @@
  .header-wrapper .default-content-wrapper p a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
   padding: 0.75rem 0.5rem;
   display: block;
   transition: color 0.3s ease;
@@ -93,12 +101,12 @@
 }
 
  .header-wrapper .w-search {
-  background-color: #111;
+  background-color: #fff;
   padding: 8px;
   border-radius: 4px;
   display: inline-block;
   position: relative;
-  width: 250px;
+  width: 150px;
 }
 
  .header-wrapper .w-search-form-field input[type="text"] {
@@ -106,7 +114,7 @@
   background: transparent;
   border: none;
   outline: none;
-  color: #fff;
+  color: #000;
   font-size: 16px;
   padding: 8px 32px 8px 0;
 }
@@ -142,4 +150,8 @@
 
  .header-wrapper .w-search-close::after {
   transform: rotate(-45deg);
+}
+
+.header-wrapper .social-icon img {
+  padding-top: 15px;
 }
