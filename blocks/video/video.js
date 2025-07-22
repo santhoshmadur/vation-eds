@@ -107,12 +107,10 @@ const loadVideoEmbed = (block, link, autoplay, background) => {
 };
 
 export default async function decorate(block) {
-  const text1Element = block.querySelector('[data-aue-prop="text1"]');
-  const videoTitle = text1Element ? text1Element.textContent : '';
-  const text2Element = block.querySelector('[data-aue-prop="text2"]');
-  const videoSubTitle = text2Element ? text2Element.textContent : '';
-  const text3Element = block.querySelector('[data-aue-prop="text3"]');
-  const videoDescription = text3Element ? text3Element.textContent : '';
+  const pTags = block.querySelectorAll('p');
+  const videoTitle = pTags[0]?.textContent || '';
+  const videoSubTitle = pTags[1]?.textContent || '';
+  const videoDescription = pTags[pTags.length - 1]?.textContent || '';
   const placeholder = block.querySelector('picture');
   const link = block.querySelector('a').href;
   block.textContent = '';
