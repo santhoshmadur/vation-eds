@@ -283,7 +283,7 @@
     "fields": [
       {
         "component": "richtext",
-        "name": "text",
+        "name": "classes",
         "value": "",
         "label": "Video Heading",
         "valueType": "string"
