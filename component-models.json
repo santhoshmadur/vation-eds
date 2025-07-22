@@ -282,6 +282,13 @@
     "id": "video",
     "fields": [
       {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Video Heading",
+        "valueType": "string"
+      },
+      {
         "component": "aem-content",
         "name": "link",
         "label": "Video Link"
@@ -290,6 +297,13 @@
         "component": "reference",
         "name": "poster",
         "label": "Poster Image"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Video Text",
+        "valueType": "string"
       }
     ]
   }
