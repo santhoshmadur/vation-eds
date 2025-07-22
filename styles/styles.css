@@ -227,10 +227,11 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* sections 
 main > .section {
   margin: 40px 0;
 }
+*/
 
 /* main > .section > div {
   max-width: 1200px;
