@@ -282,10 +282,17 @@
     "id": "video",
     "fields": [
       {
-        "component": "richtext",
-        "name": "text",
+        "component": "text",
+        "name": "text1",
         "value": "",
-        "label": "Video Heading",
+        "label": "Video Title",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "text2",
+        "value": "",
+        "label": "Video Sub Title",
         "valueType": "string"
       },
       {
@@ -299,10 +306,10 @@
         "label": "Poster Image"
       },
       {
-        "component": "richtext",
-        "name": "text2",
+        "component": "text",
+        "name": "text3",
         "value": "",
-        "label": "Video Text",
+        "label": "Video Description",
         "valueType": "string"
       }
     ]
