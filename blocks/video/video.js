@@ -112,7 +112,7 @@ export default async function decorate(block) {
   const videoSubTitle = pTags[1]?.textContent || '';
   const videoDescription = pTags[pTags.length - 1]?.textContent || '';
   const placeholder = block.querySelector('picture');
-  const link = block.querySelector('a').href;
+  const link = block.querySelector('a')?.href;
   block.textContent = '';
   block.dataset.embedLoaded = false;
 
@@ -123,6 +123,14 @@ export default async function decorate(block) {
     <div class="video-subtitle">${videoSubTitle}</div>
   `;
   block.append(heading);
+
+  // Create description element but don't append yet
+  let desc;
+  if (videoDescription) {
+    desc = document.createElement('div');
+    desc.className = 'video-description';
+    desc.textContent = videoDescription;
+  }
 
   const autoplay = block.classList.contains('autoplay');
   if (placeholder) {
@@ -138,7 +146,15 @@ export default async function decorate(block) {
       );
       wrapper.addEventListener('click', () => {
         wrapper.remove();
-        loadVideoEmbed(block, link, true, false);
+        // Insert video before description
+        const videoEl = getVideoElement(link, true, false);
+        if (desc) {
+          block.append(videoEl);
+          block.append(desc);
+        } else {
+          block.append(videoEl);
+        }
+        block.dataset.embedLoaded = true;
       });
     }
     block.append(wrapper);
@@ -150,15 +166,12 @@ export default async function decorate(block) {
         observer.disconnect();
         const playOnLoad = autoplay && !prefersReducedMotion.matches;
         loadVideoEmbed(block, link, playOnLoad, autoplay);
+        if (desc) block.append(desc);
       }
     });
     observer.observe(block);
-  }
-
-  if (videoDescription) {
-    const desc = document.createElement('div');
-    desc.className = 'video-description';
-    desc.textContent = videoDescription;
+  } else if (desc) {
+    // Only append description if not already handled above
     block.append(desc);
   }
 }

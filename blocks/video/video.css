@@ -1,11 +1,10 @@
 .video-container{
   background-color: #000;
+  height: 1098px;
 }
 
 .video {
-  text-align: center;
-  max-width: 900px;
-  margin: 24px auto;
+  padding: 72px 45px;
 }
 
 .video[data-embed-loaded='false']:not(.placeholder) {
@@ -13,9 +12,25 @@
   aspect-ratio: 16 / 9;
 }
 
-.video > div {
-  display: flex;
-  justify-content: center;
+/* Move this selector above the more specific one */
+.video-heading .video-title {
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.video .video-heading .video-title{
+  margin-bottom: 27px;
+}
+
+.video .video-heading{
+  margin-bottom: 27px;
+  color: #fff;
+}
+
+.video .video-description{
+  margin-top: 27px;
+  text-align: center;
+  color: #fff;
 }
 
 .video video {
@@ -23,9 +38,23 @@
 }
 
 .video .video-placeholder {
-  width: 100%;
-  aspect-ratio: 16 / 9;
+  width: 1220px;
+  height: 686px;
   position: relative;
+}
+
+.video-placeholder picture {
+  border-radius: 10px;
+  background: #efefef;
+  padding: 10px;
+  text-align: center;
+}
+
+.video-wrapper video {
+  border-radius: 10px;
+  background: #efefef;
+  padding: 10px;
+  text-align: center;
 }
 
 .video .video-placeholder > * {
@@ -34,13 +63,6 @@
   justify-content: center;
   position: absolute;
   inset: 0;
-}
-
-.video[data-embed-loaded='true'] .video-placeholder,
-.video[data-embed-loaded='false'] .video-placeholder + * {
-  visibility: hidden;
-  height: 0;
-  width: 0;
 }
 
 .video .video-placeholder picture img {
