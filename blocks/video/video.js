@@ -112,7 +112,7 @@ export default async function decorate(block) {
     const heading = document.createElement('div');
     heading.className = 'video-heading';
     heading.textContent = videoHeading.textContent;
-    block.prepend(heading);
+    block.append(heading);
   }
 
   const placeholder = block.querySelector('picture');
