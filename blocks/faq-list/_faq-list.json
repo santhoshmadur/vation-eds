@@ -1,5 +1,6 @@
 {
-    "definitions":[{
+  "definitions": [
+    {
       "title": "Faq List",
       "id": "faq-list",
       "plugins": {
@@ -16,7 +17,7 @@
       }
     },
     {
-       "title": "Faq List Item",
+      "title": "Faq List Item",
       "id": "faq-list-item",
       "plugins": {
         "xwalk": {
@@ -46,9 +47,9 @@
         }
       }
     }
-    ],
-    "models": [
-        {
+  ],
+  "models": [
+    {
       "id": "faq-list",
       "fields": [
         {
@@ -61,15 +62,15 @@
       ]
     },
     {
-    "id": "faq-list-item",
+      "id": "faq-list-item",
       "fields": [
         {
-            "component": "richtext",
-            "name": "collapseDescription",
-            "value": "",
-            "label": "Collapse Description",
-            "valueType": "string"
-          }
+          "component": "richtext",
+          "name": "collapseDescription",
+          "value": "",
+          "label": "Collapse Description",
+          "valueType": "string"
+        }
       ]
     },
     {
@@ -84,19 +85,28 @@
         }
       ]
     }
-    ],
-    "filters": [
-      {
+  ],
+  "filters": [
+    {
       "id": "faq-list",
       "components": [
-        "faq-list-item"
+        {
+          "id": "faq-list-item",
+          "components": [
+            {
+              "id": "faq-list-item-sub"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "faq-list-item",
       "components": [
-        "faq-list-item-sub"
+        {
+          "id": "faq-list-item-sub"
+        }
       ]
     }
-    ]
-  }
+  ]
+}
