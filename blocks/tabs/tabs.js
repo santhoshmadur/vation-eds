@@ -1,6 +1,6 @@
-const isInUniversalEditor = window?.location?.search?.includes('/content') === false;
+const isInUniversalEditor = window.location.pathname.includes('/content');
 export default function decorate(block) {
-  if (!isInUniversalEditor) {
+  if (isInUniversalEditor) {
     return; // Skip enhancement in UE
   }
   const sections = [...block.children].slice(1); // skip the title (first div)
