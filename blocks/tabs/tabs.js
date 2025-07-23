@@ -18,6 +18,15 @@ export default function decorate(block) {
     contentDiv.classList.add('tab-text');
     contentDiv.innerHTML = contentWrapper.innerHTML;
 
+    // Insert <hr> after each <p> except the last two
+    const pTags = contentDiv.querySelectorAll('p');
+    pTags.forEach((p, index) => {
+      if (index < pTags.length - 2) {
+        const hr = document.createElement('hr');
+        p.after(hr);
+      }
+    });
+
     const imageDiv = document.createElement('div');
     imageDiv.classList.add('tab-image');
     imageDiv.innerHTML = imageWrapper.innerHTML;
