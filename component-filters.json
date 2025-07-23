@@ -57,7 +57,7 @@
     ]
   },
   {
-    "id": "faq-list-sub-item",
+    "id": "faq-list-item",
     "components": [
       "faq-list-sub-item"
     ]
