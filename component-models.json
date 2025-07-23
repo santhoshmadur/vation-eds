@@ -301,7 +301,7 @@
         "label": "Content",
         "multiple": true,
         "allowedBlocks": [
-          "columns"
+          "text"
         ]
       }
     ]
