@@ -46,7 +46,7 @@
   margin: 0;
 }
 
- .header-wrapper .default-content-wrapper p a {
+ .header-wrapper .default-content-wrapper li a {
   color: white;
   text-decoration: none;
   padding: 0.75rem 0.5rem;
