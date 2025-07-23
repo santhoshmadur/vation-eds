@@ -1,4 +1,4 @@
-const isInUniversalEditor = window.location.pathname.includes('/content');
+const isInUniversalEditor = window.location.pathname.includes('/universal-editor');
 export default function decorate(block) {
   if (isInUniversalEditor) {
     return; // Skip enhancement in UE
