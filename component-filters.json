@@ -19,7 +19,8 @@
       "logo",
       "carousels",
       "video",
-      "tabs"
+      "tabs",
+      "faq-list"
     ]
   },
   {
@@ -47,6 +48,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "faq-list",
+    "components": [
+      "faq-list-item"
     ]
   },
   {
