@@ -53,14 +53,13 @@
   {
     "id": "faq-list",
     "components": [
-      "faq-list-item",
-      "faq-list-sub-item"
+      "faq-list-item"
     ]
   },
   {
     "id": "faq-list-item",
     "components": [
-      "faq-list-sub-item"
+      "faq-list-item-sub"
     ]
   },
   {
