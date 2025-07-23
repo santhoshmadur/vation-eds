@@ -85,26 +85,12 @@
           "value": "",
           "label": "Collapse Description",
           "valueType": "string"
-        },
-        {
-          "component": "richtext",
-          "name": "description-ex",
-          "value": "",
-          "label": "Expanded Description",
-          "valueType": "string"
         }
       ]
     },
     {
       "id": "faq-list-sub-item",
       "fields": [
-        {
-          "component": "richtext",
-          "name": "collapseDescription",
-          "value": "",
-          "label": "Collapse Description",
-          "valueType": "string"
-        },
         {
           "component": "richtext",
           "name": "description-ex",
