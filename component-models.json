@@ -142,20 +142,84 @@
     ]
   },
   {
-    "id": "card",
+    "id": "faq-list",
     "fields": [
       {
-        "component": "reference",
+        "component": "text-input",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "value": "h2",
+        "label": "Type",
         "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "faq-list-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "collapseDescription",
+        "value": "",
+        "label": "Collapse Description",
+        "valueType": "string"
       },
       {
         "component": "richtext",
-        "name": "text",
+        "name": "description-ex",
         "value": "",
-        "label": "Text",
+        "label": "Expanded Description",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "faq-list-sub-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "collapseDescription",
+        "value": "",
+        "label": "Collapse Description",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description-ex",
+        "value": "",
+        "label": "Expanded Description",
         "valueType": "string"
       }
     ]

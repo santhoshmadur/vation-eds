@@ -24,9 +24,15 @@
     ]
   },
   {
-    "id": "cards",
+    "id": "faq-list",
     "components": [
-      "card"
+      "faq-list-item"
+    ]
+  },
+  {
+    "id": "faq-list-sub-item",
+    "components": [
+      "faq-list-sub-item"
     ]
   },
   {
