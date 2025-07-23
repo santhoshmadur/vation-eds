@@ -196,42 +196,6 @@
     ]
   },
   {
-    "id": "faq-list",
-    "fields": [
-      {
-        "component": "text-input",
-        "name": "title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "faq-list-item",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "collapseDescription",
-        "value": "",
-        "label": "Collapse Description",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "faq-list-item-sub",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "description-ex",
-        "value": "",
-        "label": "Expanded Description",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "fragment",
     "fields": [
       {
