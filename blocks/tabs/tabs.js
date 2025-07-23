@@ -5,7 +5,6 @@ export default function decorate(block) {
   const allSections = [...block.children];
   const titleSection = allSections[0];
 
-
   // Build title list and content blocks
   sections.forEach((section) => {
     const [titleWrapper, contentWrapper, imageWrapper] = section.children;
@@ -40,9 +39,8 @@ export default function decorate(block) {
     if (index === 0) li.classList.add('active');
     li.addEventListener('click', () => {
       // Remove active from all
-      tabList.querySelectorAll('li').forEach(el => el.classList.remove('active'));
-      tabContents.forEach(tc => tc.classList.remove('active'));
-
+      tabList.querySelectorAll('li').forEach((el) => el.classList.remove('active'));
+      tabContents.forEach((tc) => tc.classList.remove('active'));
       // Activate selected
       li.classList.add('active');
       tabContents[index].classList.add('active');
