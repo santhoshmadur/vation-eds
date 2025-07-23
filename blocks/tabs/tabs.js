@@ -1,75 +1,79 @@
+const isInUniversalEditor = window?.location?.search?.includes('/content') === false;
 export default function decorate(block) {
+  if (!isInUniversalEditor) {
+    return; // Skip enhancement in UE
+  }
+  const sections = [...block.children].slice(1); // skip the title (first div)
+  const tabTitles = [];
+  const tabContents = [];
   const allSections = [...block.children];
   const titleSection = allSections[0];
-  const tabSections = allSections.slice(1);
 
-  const tabTitles = [];
-  const tabContentHTML = [];
-
-  // Main Title
-  const mainTitle = titleSection.querySelector('p')?.textContent?.trim() || '';
-
-  // Build tab headers and contents
-  tabSections.forEach((section, index) => {
+  // Build title list and content blocks
+  sections.forEach((section) => {
     const [titleWrapper, contentWrapper, imageWrapper] = section.children;
-    const title = titleWrapper?.querySelector('p')?.textContent?.trim() || `Tab ${index + 1}`;
+    const title = titleWrapper.querySelector('p')?.textContent?.trim();
     tabTitles.push(title);
 
-    // Build tab content
-    const contentHTML = contentWrapper?.innerHTML || '';
-    const imageHTML = imageWrapper?.innerHTML || '';
+    const tabContent = document.createElement('div');
+    tabContent.classList.add('tab-content');
 
-    // Add <hr> between <p> tags except the last two
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = contentHTML;
-    const pTags = tempDiv.querySelectorAll('p');
-    pTags.forEach((p, i) => {
-      if (i < pTags.length - 2) {
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('tab-text');
+    contentDiv.innerHTML = contentWrapper.innerHTML;
+
+    // Insert <hr> after each <p> except the last two
+    const pTags = contentDiv.querySelectorAll('p');
+    pTags.forEach((p, index) => {
+      if (index < pTags.length - 2) {
         const hr = document.createElement('hr');
         p.after(hr);
       }
     });
 
-    const processedContentHTML = tempDiv.innerHTML;
+    const imageDiv = document.createElement('div');
+    imageDiv.classList.add('tab-image');
+    imageDiv.innerHTML = imageWrapper.innerHTML;
 
-    const tabClass = index === 0 ? 'tab-content active' : 'tab-content';
-    tabContentHTML.push(`
-      <div class="${tabClass}">
-        <div class="tab-text">${processedContentHTML}</div>
-        <div class="tab-image">${imageHTML}</div>
-      </div>
-    `);
+    tabContent.append(contentDiv, imageDiv);
+    tabContents.push(tabContent);
   });
 
-  // Build tab header list
-  const tabHeaderHTML = tabTitles
-    .map((title, index) => {
-      const activeClass = index === 0 ? 'active' : '';
-      return `<li class="${activeClass}"><a>${title}</a></li>`;
-    })
-    .join('');
+  // Clear block and rebuild with tab UI
+  block.innerHTML = '';
 
-  // Final assembled HTML
-  const htmlLiteral = `
-    <div class="main-title">${mainTitle}</div>
-    <ul class="tab-header">${tabHeaderHTML}</ul>
-    <div class="tab-container-main">
-      ${tabContentHTML.join('')}
-    </div>
-  `;
+  // Create tab header
+  const tabList = document.createElement('ul');
+  tabList.className = 'tab-header';
 
-  block.innerHTML = htmlLiteral;
-
-  // Add interactivity
-  const tabListItems = block.querySelectorAll('.tab-header li');
-  const tabContents = block.querySelectorAll('.tab-content');
-
-  tabListItems.forEach((li, index) => {
+  tabTitles.forEach((title, index) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<a>${title}</a>`;
+    if (index === 0) li.classList.add('active');
     li.addEventListener('click', () => {
-      tabListItems.forEach((el) => el.classList.remove('active'));
+      // Remove active from all
+      tabList.querySelectorAll('li').forEach((el) => el.classList.remove('active'));
       tabContents.forEach((tc) => tc.classList.remove('active'));
+      // Activate selected
       li.classList.add('active');
       tabContents[index].classList.add('active');
     });
+    tabList.appendChild(li);
   });
+
+  // Add header and tabs to block
+  const title = document.createElement('div');
+  title.className = 'main-title';
+  const titleText = titleSection.querySelector('p')?.textContent.trim();
+  title.textContent = titleText;
+
+  const tabContainer = document.createElement('div');
+  tabContainer.classList.add('tab-container-main');
+
+  tabContents.forEach((content, index) => {
+    if (index === 0) content.classList.add('active');
+    tabContainer.appendChild(content);
+  });
+
+  block.append(title, tabList, tabContainer);
 }
