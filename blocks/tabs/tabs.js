@@ -1,47 +1,68 @@
-// eslint-disable-next-line import/no-unresolved
-import { toClassName } from '../../scripts/aem.js';
+export default function decorate(block) {
+  const sections = [...block.children].slice(1); // skip the title (first div)
+  const tabTitles = [];
+  const tabContents = [];
+  const allSections = [...block.children];
+  const titleSection = allSections[0];
 
-export default async function decorate(block) {
-  // build tablist
-  const tablist = document.createElement('div');
-  tablist.className = 'tabs-list';
-  tablist.setAttribute('role', 'tablist');
 
-  // decorate tabs and tabpanels
-  const tabs = [...block.children].map((child) => child.firstElementChild);
-  tabs.forEach((tab, i) => {
-    const id = toClassName(tab.textContent);
+  // Build title list and content blocks
+  sections.forEach((section) => {
+    const [titleWrapper, contentWrapper, imageWrapper] = section.children;
+    const title = titleWrapper.querySelector('p')?.textContent?.trim();
+    tabTitles.push(title);
 
-    // decorate tabpanel
-    const tabpanel = block.children[i];
-    tabpanel.className = 'tabs-panel';
-    tabpanel.id = `tabpanel-${id}`;
-    tabpanel.setAttribute('aria-hidden', !!i);
-    tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
-    tabpanel.setAttribute('role', 'tabpanel');
+    const tabContent = document.createElement('div');
+    tabContent.classList.add('tab-content');
 
-    // build tab button
-    const button = document.createElement('button');
-    button.className = 'tabs-tab';
-    button.id = `tab-${id}`;
-    button.innerHTML = tab.innerHTML;
-    button.setAttribute('aria-controls', `tabpanel-${id}`);
-    button.setAttribute('aria-selected', !i);
-    button.setAttribute('role', 'tab');
-    button.setAttribute('type', 'button');
-    button.addEventListener('click', () => {
-      block.querySelectorAll('[role=tabpanel]').forEach((panel) => {
-        panel.setAttribute('aria-hidden', true);
-      });
-      tablist.querySelectorAll('button').forEach((btn) => {
-        btn.setAttribute('aria-selected', false);
-      });
-      tabpanel.setAttribute('aria-hidden', false);
-      button.setAttribute('aria-selected', true);
-    });
-    tablist.append(button);
-    tab.remove();
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('tab-text');
+    contentDiv.innerHTML = contentWrapper.innerHTML;
+
+    const imageDiv = document.createElement('div');
+    imageDiv.classList.add('tab-image');
+    imageDiv.innerHTML = imageWrapper.innerHTML;
+
+    tabContent.append(contentDiv, imageDiv);
+    tabContents.push(tabContent);
   });
 
-  block.prepend(tablist);
+  // Clear block and rebuild with tab UI
+  block.innerHTML = '';
+
+  // Create tab header
+  const tabList = document.createElement('ul');
+  tabList.className = 'tab-header';
+
+  tabTitles.forEach((title, index) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<a>${title}</a>`;
+    if (index === 0) li.classList.add('active');
+    li.addEventListener('click', () => {
+      // Remove active from all
+      tabList.querySelectorAll('li').forEach(el => el.classList.remove('active'));
+      tabContents.forEach(tc => tc.classList.remove('active'));
+
+      // Activate selected
+      li.classList.add('active');
+      tabContents[index].classList.add('active');
+    });
+    tabList.appendChild(li);
+  });
+
+  // Add header and tabs to block
+  const title = document.createElement('div');
+  title.className = 'main-title';
+  const titleText = titleSection.querySelector('p')?.textContent.trim();
+  title.textContent = titleText;
+
+  const tabContainer = document.createElement('div');
+  tabContainer.classList.add('tab-container-main');
+
+  tabContents.forEach((content, index) => {
+    if (index === 0) content.classList.add('active');
+    tabContainer.appendChild(content);
+  });
+
+  block.append(title, tabList, tabContainer);
 }
