@@ -37,9 +37,9 @@
       "fields": [
         {
           "component": "text-input",
-          "name": "title",
+          "name": "heading",
           "value": "",
-          "label": "Title",
+          "label": "Heading",
           "valueType": "string"
         }
       ]
