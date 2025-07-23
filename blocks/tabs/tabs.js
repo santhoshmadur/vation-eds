@@ -1,49 +1,27 @@
 export default function decorate(block) {
+  const sections = [...block.children].slice(1); // skip the title (first div)
+  const tabTitles = [];
+  const tabContents = [];
   const allSections = [...block.children];
   const titleSection = allSections[0];
-  const sections = allSections.slice(1); // skip the title
-  const tabTitles = [];
 
-  // Create wrapper to hold the enhanced layout
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('tab-wrapper');
-
-  // Build main title
-  const title = document.createElement('div');
-  title.className = 'main-title';
-  const titleText = titleSection.querySelector('p')?.textContent?.trim();
-  title.textContent = titleText;
-
-  // Create tab header
-  const tabList = document.createElement('ul');
-  tabList.className = 'tab-header';
-
-  // Create tab content container
-  const tabContainer = document.createElement('div');
-  tabContainer.classList.add('tab-container-main');
-
-  // Process each section
-  sections.forEach((section, index) => {
+  // Build title list and content blocks
+  sections.forEach((section) => {
     const [titleWrapper, contentWrapper, imageWrapper] = section.children;
-    const tabTitle = titleWrapper.querySelector('p')?.textContent?.trim();
-    tabTitles.push(tabTitle);
-
-    const li = document.createElement('li');
-    li.innerHTML = `<a>${tabTitle}</a>`;
-    if (index === 0) li.classList.add('active');
-    tabList.appendChild(li);
+    const title = titleWrapper.querySelector('p')?.textContent?.trim();
+    tabTitles.push(title);
 
     const tabContent = document.createElement('div');
     tabContent.classList.add('tab-content');
-    if (index === 0) tabContent.classList.add('active');
 
     const contentDiv = document.createElement('div');
     contentDiv.classList.add('tab-text');
     contentDiv.innerHTML = contentWrapper.innerHTML;
 
+    // Insert <hr> after each <p> except the last two
     const pTags = contentDiv.querySelectorAll('p');
-    pTags.forEach((p, i) => {
-      if (i < pTags.length - 2) {
+    pTags.forEach((p, index) => {
+      if (index < pTags.length - 2) {
         const hr = document.createElement('hr');
         p.after(hr);
       }
@@ -54,18 +32,44 @@ export default function decorate(block) {
     imageDiv.innerHTML = imageWrapper.innerHTML;
 
     tabContent.append(contentDiv, imageDiv);
-    tabContainer.appendChild(tabContent);
-
-    // Event listener
-    li.addEventListener('click', () => {
-      tabList.querySelectorAll('li').forEach((el) => el.classList.remove('active'));
-      tabContainer.querySelectorAll('.tab-content').forEach((tc) => tc.classList.remove('active'));
-      li.classList.add('active');
-      tabContent.classList.add('active');
-    });
+    tabContents.push(tabContent);
   });
 
-  // Append built UI without clearing block content
-  wrapper.append(title, tabList, tabContainer);
-  block.appendChild(wrapper);
+  // Clear block and rebuild with tab UI
+  block.textContent = '';
+
+  // Create tab header
+  const tabList = document.createElement('ul');
+  tabList.className = 'tab-header';
+
+  tabTitles.forEach((title, index) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<a>${title}</a>`;
+    if (index === 0) li.classList.add('active');
+    li.addEventListener('click', () => {
+      // Remove active from all
+      tabList.querySelectorAll('li').forEach((el) => el.classList.remove('active'));
+      tabContents.forEach((tc) => tc.classList.remove('active'));
+      // Activate selected
+      li.classList.add('active');
+      tabContents[index].classList.add('active');
+    });
+    tabList.appendChild(li);
+  });
+
+  // Add header and tabs to block
+  const title = document.createElement('div');
+  title.className = 'main-title';
+  const titleText = titleSection.querySelector('p')?.textContent.trim();
+  title.textContent = titleText;
+
+  const tabContainer = document.createElement('div');
+  tabContainer.classList.add('tab-container-main');
+
+  tabContents.forEach((content, index) => {
+    if (index === 0) content.classList.add('active');
+    tabContainer.appendChild(content);
+  });
+
+  block.append(title, tabList, tabContainer);
 }
