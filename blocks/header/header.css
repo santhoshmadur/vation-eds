@@ -90,7 +90,7 @@
   transition: background 0.3s ease;
 }
 
- .header-wrapper .default-content-wrapper p a:hover {
+ .header-wrapper .default-content-wrapper li a:hover {
   color: #a900ff;
   text-decoration: underline;
 }
