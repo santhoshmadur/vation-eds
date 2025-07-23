@@ -279,30 +279,40 @@
     ]
   },
   {
+    "id": "tabs",
+    "fields": [
+      {
+        "component": "text-input",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "tab",
     "fields": [
+      {
+        "component": "text-input",
+        "name": "tab-title",
+        "value": "",
+        "label": "Tab Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
       {
         "component": "reference",
         "valueType": "string",
         "name": "image",
         "label": "Image",
         "multi": false
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      },
-      {
-        "component": "block",
-        "name": "content",
-        "label": "Content",
-        "multiple": true,
-        "allowedBlocks": [
-          "text"
-        ]
       }
     ]
   },
