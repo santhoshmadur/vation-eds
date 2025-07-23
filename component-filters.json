@@ -53,7 +53,8 @@
   {
     "id": "faq-list",
     "components": [
-      "faq-list-item"
+      "faq-list-item",
+      "faq-list-sub-item"
     ]
   },
   {
