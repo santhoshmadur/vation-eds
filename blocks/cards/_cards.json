@@ -57,6 +57,7 @@
       "id": "cards",
       "components": [
         "title",
+        "text",
         "card",
         "button"
       ]
