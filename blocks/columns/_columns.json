@@ -42,19 +42,19 @@
           "description": "",
           "valueType":"string",
           "options": [
-                {
-                    "name": "Default",
-                    "value": ""
-                },
-                {
-                    "name": "Black Background",
-                    "value": "columns-black-background"
-                },
-                {
-                    "name": "White Background",
-                    "value": "columns-white-background"
-                }
-            ]
+              {
+                  "name": "Default",
+                  "value": ""
+              },
+              {
+                  "name": "Black Background",
+                  "value": "columns-black-background"
+              },
+              {
+                  "name": "White Background",
+                  "value": "columns-white-background"
+              }
+          ]
         }
       ]
     }
