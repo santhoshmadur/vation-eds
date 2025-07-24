@@ -25,9 +25,7 @@
   {
     "id": "cards",
     "components": [
-      "title",
       "card-title",
-      "text",
       "card",
       "button"
     ]
