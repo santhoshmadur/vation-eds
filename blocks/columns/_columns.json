@@ -33,6 +33,28 @@
           "name": "rows",
           "value": "",
           "label": "Rows"
+        },
+        {
+          "component": "select",
+          "name": "classes",
+          "value": "",
+          "label": "Select Style",
+          "description": "",
+          "valueType":"string",
+          "options": [
+                {
+                    "name": "Default",
+                    "value": ""
+                },
+                {
+                    "name": "Black Background",
+                    "value": "columns-black-background"
+                },
+                {
+                    "name": "White Background",
+                    "value": "columns-white-background"
+                }
+            ]
         }
       ]
     }
