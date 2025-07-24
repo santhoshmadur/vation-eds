@@ -157,11 +157,6 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      },
-      {
-        "component": "aem-content",
-        "name": "link",
-        "label": "Video Link"
       }
     ]
   },
