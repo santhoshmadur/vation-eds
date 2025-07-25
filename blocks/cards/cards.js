@@ -1,5 +1,8 @@
-export default async function decorate(block) {
-  // Create a wrapper container
+const isInUniversalEditor = window.location.pathname.includes('/content');
+export default function decorate(block) {
+  if (isInUniversalEditor) {
+    return; // Skip enhancement in UE
+  }
   const section = document.createElement('div');
   section.className = 'solutions-section';
 
