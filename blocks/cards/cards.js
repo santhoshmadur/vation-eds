@@ -12,20 +12,20 @@ export default function decorate(block) {
     const titleDiv = block.children[0];
     if (titleDiv) {
       const paragraphs = titleDiv.querySelectorAll('p');
+      const titleCard = document.createElement('div');
+      titleCard.className = 'title-card';
 
-      // First <p> to <h1>
       if (paragraphs.length > 0) {
         const h1 = document.createElement('h1');
         h1.textContent = paragraphs[0].textContent.trim();
-        section.appendChild(h1);
+        titleCard.appendChild(h1);
       }
-
-      // Second <p> as-is
       if (paragraphs.length > 1) {
         const p = document.createElement('p');
         p.innerHTML = paragraphs[1].innerHTML; // preserves formatting like &nbsp;
-        section.appendChild(p);
+        titleCard.appendChild(p);
       }
+      section.appendChild(titleCard);
     }
 
     const cardGrid = document.createElement('div');
