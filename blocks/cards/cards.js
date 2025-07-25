@@ -1,84 +1,84 @@
 const isInUniversalEditor = window.location.pathname.includes('/content');
+
 export default function decorate(block) {
-  if (isInUniversalEditor) {
-    return; // Skip enhancement in UE
-  }
-  const section = document.createElement('div');
-  section.className = 'solutions-section';
+  const parentClass = block.parentElement?.parentElement?.className;
 
-  // Title (from the first <div>)
-  const titleDiv = block.children[0];
-  if (titleDiv) {
-    const titleText = titleDiv.querySelector('p')?.textContent.trim();
-    if (titleText) {
-      const heading = document.createElement('h1');
-      heading.textContent = titleText;
-      section.appendChild(heading);
-    }
-  }
+  if (isInUniversalEditor) return;
 
-  // Grid container
-  const cardGrid = document.createElement('div');
-  cardGrid.className = 'card-grid';
+  if (parentClass) {
+    const section = document.createElement('div');
+    section.className = 'solutions-section';
 
-  // All middle children are cards (excluding first and last)
-  const cards = [...block.children].slice(1, -1);
-
-  cards.forEach((cardDiv) => {
-    const link = cardDiv.querySelector('a');
-    if (!link) return;
-
-    const href = link.getAttribute('href');
-    const title = cardDiv.querySelectorAll('p')[0]?.textContent.trim();
-    const desc = cardDiv.querySelectorAll('p')[1]?.textContent.trim();
-    const picture = cardDiv.querySelector('picture');
-
-    const card = document.createElement('div');
-    card.className = 'card';
-
-    const anchor = document.createElement('a');
-    anchor.href = href;
-    anchor.title = link.getAttribute('title') || title || '';
-
-    // Icon/Image
-    const icon = document.createElement('div');
-    icon.className = 'icon';
-    if (picture) {
-      icon.appendChild(picture.cloneNode(true));
+    const titleDiv = block.children[0];
+    if (titleDiv) {
+      const titleText = titleDiv.querySelector('p')?.textContent.trim();
+      if (titleText) {
+        const heading = document.createElement('h1');
+        heading.textContent = titleText;
+        section.appendChild(heading);
+      }
     }
 
-    // Title
-    const h2 = document.createElement('h2');
-    h2.textContent = title || '';
+    const cardGrid = document.createElement('div');
+    cardGrid.className = 'card-grid';
 
-    // Description
-    const p = document.createElement('p');
-    p.textContent = desc || '';
+    let cards = [];
+    if (parentClass.includes('card-black-background')) {
+      cards = [...block.children].slice(1, -1);
+    } else {
+      cards = [...block.children].slice(1);
+    }
 
-    // Build card
-    anchor.appendChild(icon);
-    anchor.appendChild(h2);
-    anchor.appendChild(p);
-    card.appendChild(anchor);
-    cardGrid.appendChild(card);
-  });
+    cards.forEach((cardDiv) => {
+      const link = cardDiv.querySelector('a');
+      const href = link?.getAttribute('href') || null;
+      const title = cardDiv.querySelectorAll('p')[0]?.textContent.trim() || '';
+      const desc = cardDiv.querySelectorAll('p')[1]?.textContent.trim() || '';
+      const picture = cardDiv.querySelector('picture');
 
-  section.appendChild(cardGrid);
+      const card = document.createElement('div');
+      card.className = 'card';
 
-  // CTA (last child)
-  const ctaSource = block.lastElementChild?.querySelector('a');
-  if (ctaSource) {
-    const ctaDiv = document.createElement('div');
-    ctaDiv.className = 'cta';
-    const cta = document.createElement('a');
-    cta.href = ctaSource.href;
-    cta.title = ctaSource.title || ctaSource.textContent.trim();
-    cta.textContent = ctaSource.textContent.trim();
-    ctaDiv.appendChild(cta);
-    section.appendChild(ctaDiv);
+      const anchor = href ? document.createElement('a') : document.createElement('div');
+      if (href) {
+        anchor.href = href;
+        anchor.title = link.getAttribute('title') || title;
+      }
+
+      const icon = document.createElement('div');
+      icon.className = 'icon';
+      if (picture) icon.appendChild(picture.cloneNode(true));
+
+      const h2 = document.createElement('h2');
+      h2.textContent = title;
+
+      const p = document.createElement('p');
+      p.textContent = desc;
+
+      anchor.appendChild(icon);
+      anchor.appendChild(h2);
+      anchor.appendChild(p);
+      card.appendChild(anchor);
+      cardGrid.appendChild(card);
+    });
+
+    section.appendChild(cardGrid);
+
+    if (parentClass.includes('card-black-background')) {
+      const ctaSource = block.lastElementChild?.querySelector('a');
+      if (ctaSource) {
+        const ctaDiv = document.createElement('div');
+        ctaDiv.className = 'cta';
+        const cta = document.createElement('a');
+        cta.href = ctaSource.href;
+        cta.title = ctaSource.title || ctaSource.textContent.trim();
+        cta.textContent = ctaSource.textContent.trim();
+        ctaDiv.appendChild(cta);
+        section.appendChild(ctaDiv);
+      }
+    }
+
+    block.innerHTML = '';
+    block.appendChild(section);
   }
-
-  // Clear original and insert new DOM
-  block.innerHTML = '';
-  block.appendChild(section);
 }
