@@ -53,6 +53,10 @@
               {
                   "name": "White Background",
                   "value": "columns-white-background"
+              },
+              {
+                  "name": "Three Images",
+                  "value": "three-images"
               }
           ]
         }

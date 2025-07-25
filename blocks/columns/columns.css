@@ -122,3 +122,11 @@
   height: auto;
   border-radius: 10px;
 }
+
+.columns-wrapper .three-images {
+  display: flex;
+  gap: 250px;
+  align-items: center;
+  max-width: 1250px;
+  padding: 10px 70px;
+}
