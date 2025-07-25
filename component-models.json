@@ -136,33 +136,14 @@
           {
             "name": "Highlight",
             "value": "highlight"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "cards",
-    "fields": [
-      {
-        "component": "select",
-        "name": "classes",
-        "value": "",
-        "label": "Select Style",
-        "description": "",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default",
-            "value": ""
           },
           {
-            "name": "Black Background",
-            "value": "cards-black-background"
+            "name": "Card Black Background",
+            "value": "card-black-background"
           },
           {
-            "name": "White Background",
-            "value": "cards-white-background"
+            "name": "Card White Background",
+            "value": "card-white-background"
           }
         ]
       }

@@ -33,6 +33,14 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Card Black Background",
+              "value": "card-black-background"
+            },
+            {
+              "name": "Card White Background",
+              "value": "card-white-background"
             }
           ]
         }
