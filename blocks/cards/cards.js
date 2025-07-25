@@ -11,11 +11,20 @@ export default function decorate(block) {
 
     const titleDiv = block.children[0];
     if (titleDiv) {
-      const titleText = titleDiv.querySelector('p')?.textContent.trim();
-      if (titleText) {
-        const heading = document.createElement('h1');
-        heading.textContent = titleText;
-        section.appendChild(heading);
+      const paragraphs = titleDiv.querySelectorAll('p');
+
+      // First <p> to <h1>
+      if (paragraphs.length > 0) {
+        const h1 = document.createElement('h1');
+        h1.textContent = paragraphs[0].textContent.trim();
+        section.appendChild(h1);
+      }
+
+      // Second <p> as-is
+      if (paragraphs.length > 1) {
+        const p = document.createElement('p');
+        p.innerHTML = paragraphs[1].innerHTML; // preserves formatting like &nbsp;
+        section.appendChild(p);
       }
     }
 
