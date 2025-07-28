@@ -210,11 +210,11 @@ button.secondary {
   color: var(--text-color);
 }
 
-main img {
+/* main img {
   max-width: 100%;
   width: auto;
   height: auto;
-}
+} */
 
 .icon {
   display: inline-block;
