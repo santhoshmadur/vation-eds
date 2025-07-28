@@ -37,6 +37,12 @@
     ]
   },
   {
+    "id": "clients",
+    "components": [
+      "client"
+    ]
+  },
+  {
     "id": "columns",
     "components": [
       "column"
