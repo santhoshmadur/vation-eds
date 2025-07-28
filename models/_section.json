@@ -45,6 +45,10 @@
             {
               "name": "Home Page Footer Banner",
               "value": "home-page-footer-banner"
+            },
+            {
+              "name": "Clients Block",
+              "value": "clients-block"
             }
           ]
         }
