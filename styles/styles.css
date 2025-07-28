@@ -258,7 +258,7 @@ main .section.highlight {
 
 /* home-page-footer-banner */
 
-.default-content-wrapper {
+.home-page-footer-banner .default-content-wrapper {
   position: relative;
   max-width: 100%;
   width: 100%;
@@ -266,19 +266,19 @@ main .section.highlight {
   color: white;
 }
 
-.default-content-wrapper p {
+.home-page-footer-banner .default-content-wrapper p {
   margin: 0;
 }
 
-.default-content-wrapper picture,
-.default-content-wrapper img {
+.home-page-footer-banner .default-content-wrapper picture,
+.home-page-footer-banner .default-content-wrapper img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.default-content-wrapper p:nth-of-type(2),
-.default-content-wrapper p:nth-of-type(3) {
+.home-page-footer-banner .default-content-wrapper p:nth-of-type(2),
+.home-page-footer-banner .default-content-wrapper p:nth-of-type(3) {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -286,7 +286,7 @@ main .section.highlight {
   z-index: 2;
 }
 
-.default-content-wrapper p:nth-of-type(2) {
+.home-page-footer-banner .default-content-wrapper p:nth-of-type(2) {
   top: 28%;
   font-size: 26px;
   font-weight: bold;
@@ -294,11 +294,11 @@ main .section.highlight {
   padding: 20px;
 }
 
-.default-content-wrapper p:nth-of-type(3) {
+.home-page-footer-banner .default-content-wrapper p:nth-of-type(3) {
   top: 52%;
 }
 
-.default-content-wrapper a {
+.home-page-footer-banner .default-content-wrapper a {
   display: inline-block;
   padding: 8px 24px;
   border: 2px solid #9f47ff;
@@ -311,7 +311,7 @@ main .section.highlight {
   position: relative;
 }
 
-.default-content-wrapper a:hover {
+.home-page-footer-banner .default-content-wrapper a:hover {
   background-color: #9f47ff;
   color: white;
 }
