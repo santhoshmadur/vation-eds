@@ -76,7 +76,8 @@
         "text",
         "image",
         "button",
-        "title"
+        "title",
+        "logo"
       ]
     }
   ]

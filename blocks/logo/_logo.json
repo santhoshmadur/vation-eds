@@ -59,6 +59,10 @@
                         {
                             "name": "Full Width",
                             "value": "full-width"
+                        },
+                        {
+                            "name": "Client Logo",
+                            "value": "client-logo"
                         }
                     ]
                 }
