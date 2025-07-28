@@ -41,6 +41,10 @@
             {
               "name": "Card White Background",
               "value": "card-white-background"
+            },
+            {
+              "name": "Home Page Footer Banner",
+              "value": "home-page-footer-banner"
             }
           ]
         }

@@ -255,3 +255,63 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* home-page-footer-banner */
+
+.default-content-wrapper {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.default-content-wrapper p {
+  margin: 0;
+}
+
+.default-content-wrapper picture,
+.default-content-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.default-content-wrapper p:nth-of-type(2),
+.default-content-wrapper p:nth-of-type(3) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  z-index: 2;
+}
+
+.default-content-wrapper p:nth-of-type(2) {
+  top: 28%;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1.5;
+  padding: 20px;
+}
+
+.default-content-wrapper p:nth-of-type(3) {
+  top: 52%;
+}
+
+.default-content-wrapper a {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 2px solid #9f47ff;
+  border-radius: 999px;
+  color: #9f47ff;
+  text-decoration: none;
+  font-weight: 500;
+  background: transparent;
+  transition: background 0.3s, color 0.3s;
+  position: relative;
+}
+
+.default-content-wrapper a:hover {
+  background-color: #9f47ff;
+  color: white;
+}
