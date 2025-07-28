@@ -38,7 +38,7 @@
 }
 
 .video .video-placeholder {
-  width: 1220px;
+  width: auto;
   height: 686px;
   position: relative;
 }
