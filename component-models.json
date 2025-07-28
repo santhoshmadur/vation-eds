@@ -148,10 +148,6 @@
           {
             "name": "Home Page Footer Banner",
             "value": "home-page-footer-banner"
-          },
-          {
-            "name": "Clients Block",
-            "value": "clients-block"
           }
         ]
       }
@@ -332,10 +328,6 @@
           {
             "name": "Full Width",
             "value": "full-width"
-          },
-          {
-            "name": "Client Logo",
-            "value": "client-logo"
           }
         ]
       }
