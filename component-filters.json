@@ -20,7 +20,8 @@
       "carousels",
       "video",
       "tabs",
-      "clients"
+      "clients",
+      "one-experiences"
     ]
   },
   {
@@ -57,6 +58,13 @@
       "button",
       "title",
       "logo"
+    ]
+  },
+  {
+    "id": "one-experiences",
+    "components": [
+      "one-experience",
+      "button"
     ]
   },
   {

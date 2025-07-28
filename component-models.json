@@ -365,6 +365,44 @@
     ]
   },
   {
+    "id": "one-experiences",
+    "fields": [
+      {
+        "component": "text-input",
+        "name": "Title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "text-input",
+        "name": "Sub Title",
+        "value": "",
+        "label": "sub-title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "one-experience",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "tabs",
     "fields": [
       {
