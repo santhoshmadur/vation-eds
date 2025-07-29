@@ -63,7 +63,8 @@
   {
     "id": "experiences",
     "components": [
-      "experience"
+      "experience",
+      "button"
     ]
   },
   {
