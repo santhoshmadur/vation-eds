@@ -369,16 +369,16 @@
     "fields": [
       {
         "component": "text-input",
-        "name": "Title",
+        "name": "title",
         "value": "",
         "label": "Title",
         "valueType": "string"
       },
       {
         "component": "text-input",
-        "name": "Sub Title",
+        "name": "sub-title",
         "value": "",
-        "label": "sub-title",
+        "label": "Sub Title",
         "valueType": "string"
       }
     ]
