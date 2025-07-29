@@ -1,4 +1,110 @@
-.experiences {
-  background-color: #000;
+.experiences-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  padding: 2rem;
+}
+
+.experiences-button a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #a020f0;
+  border-radius: 999px;
+  color: #a020f0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.experiences-button a:hover {
+  background-color: #a020f0;
   color: #fff;
+}
+
+.experiences-button p {
+  margin: 0;
+}
+
+.experiences-title{
+  padding: 72px 45px 0;
+  color: #fff;
+  background-color: #000;
+}
+
+.experiences-cards {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 2rem 1rem;
+  scroll-behavior: smooth;
+}
+
+.experiences-cards > div {
+  background-color: #0d0d0d; /* Match dark background */
+  color: white;
+  border-radius: 1rem;
+  flex: 0 0 30%;
+  min-width: 384px;
+  max-width: 384px;
+  scroll-snap-align: start;
+  padding-bottom: 1rem;
+  box-shadow: 0 4px 15px rgb(0 0 0 / 50%);
+}
+
+.experiences-cards picture {
+  display: block;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  overflow: hidden;
+}
+
+.experiences-cards img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.experiences-cards p {
+  padding: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+}
+
+.experiences-nav {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.experiences-btn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #c86bf3;
+  margin: 0 1rem;
+}
+
+.experiences-btn:hover {
+  color: #fff;
+}
+
+.experiences-pagination {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.experiences-pagination span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #8f2bff;
+  border-radius: 50%;
+}
+
+.experiences-pagination span.active {
+  background-color: #fff;
 }
