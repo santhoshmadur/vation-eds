@@ -72,6 +72,18 @@
   color: #fff;
 }
 
-.experiences-title{
+.experiences-title {
   padding-left: 45px;
+}
+
+.experiences-title > div:first-of-type p {
+  box-sizing: border-box;
+  color: rgb(255 255 255);
+  display: block;
+  font-family: "DM Serif Display", serif;
+  font-size: 36px;
+  font-weight: 400;
+  height: 50.3906px;
+  letter-spacing: normal;
+  line-height: 50.4px;
 }
