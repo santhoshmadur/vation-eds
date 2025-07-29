@@ -1,110 +1,77 @@
-.experiences-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #111;
-  padding: 2rem;
-}
-
-.experiences-button a {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #a020f0;
-  border-radius: 999px;
-  color: #a020f0;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.experiences-button a:hover {
-  background-color: #a020f0;
-  color: #fff;
-}
-
-.experiences-button p {
-  margin: 0;
-}
-
-.experiences-title{
-  padding: 72px 45px 0;
-  color: #fff;
-  background-color: #000;
+.experiences-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 0 80px;
+  max-width: 1216px;
+  margin: 0 auto;
 }
 
 .experiences-cards {
   display: flex;
   gap: 2rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 2rem 1rem;
-  scroll-behavior: smooth;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 
 .experiences-cards > div {
-  background-color: #0d0d0d; /* Match dark background */
-  color: white;
-  border-radius: 1rem;
-  flex: 0 0 30%;
-  min-width: 384px;
-  max-width: 384px;
-  scroll-snap-align: start;
-  padding-bottom: 1rem;
-  box-shadow: 0 4px 15px rgb(0 0 0 / 50%);
-}
-
-.experiences-cards picture {
-  display: block;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  overflow: hidden;
-}
-
-.experiences-cards img {
-  width: 100%;
-  height: auto;
-  border-radius: 1rem 1rem 0 0;
-}
-
-.experiences-cards p {
-  padding: 1rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #f1f1f1;
+  width: 384px;
+  flex-shrink: 0;
 }
 
 .experiences-nav {
-  text-align: center;
-  margin-top: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
 }
 
 .experiences-btn {
-  background: transparent;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #3b1ced;
+  color: white;
+  font-size: 1.5rem;
   border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #c86bf3;
-  margin: 0 1rem;
+  pointer-events: all;
+  transition: background 0.3s ease, border 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
-.experiences-btn:hover {
+.experiences-wrapper{
+  background-color: black;
+  color: white;
+  padding: 2rem 0;
+}
+
+.experiences-button {
+  text-align: center;
+}
+
+.experiences-button a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  color: #9c27f7;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #9c27f7;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.experiences-button a:hover {
+  background-color: #9c27f7;
   color: #fff;
 }
 
-.experiences-pagination {
-  text-align: center;
-  margin-top: 0.5rem;
-}
-
-.experiences-pagination span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
-  background-color: #8f2bff;
-  border-radius: 50%;
-}
-
-.experiences-pagination span.active {
-  background-color: #fff;
+.experiences-title{
+  padding-left: 45px;
 }
