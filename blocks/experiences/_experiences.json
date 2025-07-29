@@ -75,8 +75,7 @@
     "filters": [{
       "id": "experiences",
       "components": [
-        "experience",
-        "button"
+        "experience"
       ]
     }]
   }
