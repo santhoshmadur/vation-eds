@@ -21,7 +21,7 @@
       "video",
       "tabs",
       "clients",
-      "one-experiences"
+      "experiences"
     ]
   },
   {
@@ -58,6 +58,13 @@
       "button",
       "title",
       "logo"
+    ]
+  },
+  {
+    "id": "experiences",
+    "components": [
+      "experience",
+      "button"
     ]
   },
   {
