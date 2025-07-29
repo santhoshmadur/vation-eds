@@ -75,7 +75,7 @@
     "filters": [{
       "id": "one-experiences",
       "components": [
-        "one-experience",
+        "OneExperience",
         "button"
       ]
     }]
