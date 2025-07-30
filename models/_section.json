@@ -45,6 +45,10 @@
             {
               "name": "Home Page Footer Banner",
               "value": "home-page-footer-banner"
+            },
+            {
+              "name": "Blog Background black",
+              "value": "blog-background-black"
             }
           ]
         }
