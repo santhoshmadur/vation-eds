@@ -317,6 +317,7 @@ main .section.highlight {
 }
 
 .blog-background-black{
-  background-color: black;
+  background-color: rgb(46 44 44);
   color: white;
+  padding: 10px 60px;
 }
