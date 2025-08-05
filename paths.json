@@ -1,8 +1,6 @@
 {
   "mappings": [
-    "/content/vation-eds/:/",
-    "/content/vation-eds/terms-conditions/:/terms-conditions",
-    "/content/vation-eds/privacy-policy/:/privacy-policy",
+    "^/content/vation-eds(?:/([\\w-]+))?:?(?:/\\1)?$",
     "/content/vation-eds/configuration:/.helix/config.json",
     "/content/vation-eds/metadata:/metadata.json"
   ],
