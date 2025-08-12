@@ -356,6 +356,28 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Select Style",
+        "description": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Our Work",
+            "value": "our-work"
+          },
+          {
+            "name": "Privacy Policy",
+            "value": "privacy-policy"
+          }
+        ]
       }
     ]
   },
